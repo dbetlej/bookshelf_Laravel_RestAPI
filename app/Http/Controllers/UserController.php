@@ -24,9 +24,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        if ($user->has('borrowedBooks')) {
-            $user->load('borrowedBooks');
-        }
+        $user->load('borrowedBooks');
 
         return response()->json($user);
     }

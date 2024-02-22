@@ -23,8 +23,7 @@ class BookController extends Controller
         $validated = $request->validated();
 
         if (isset($validated['search'])) {
-            $searchTerm = $validated['search'];
-            $books = $this->bookService->search($searchTerm);
+            $books = $this->bookService->search($validated['search']);
         } else {
             $books = $this->bookService->getAllBooks();
         }
@@ -37,9 +36,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        if ($book->status == Book::BORROWED) {
-            $book->load('borrower');
-        }
+        $book->load('borrower');
 
         return response()->json($book);
     }
