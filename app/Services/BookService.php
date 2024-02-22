@@ -23,7 +23,7 @@ class BookService
      */
     public function getAllBooks(): LengthAwarePaginator
     {
-        return Book::paginate(20);
+        return Book::paginate(config('app.pagination.max_items_per_page', 20));
     }
 
     public function search($search): LengthAwarePaginator
@@ -35,6 +35,6 @@ class BookService
                        ->orWhere('author', 'like', "%$search%");
         }
 
-        return $booksQuery->paginate(20);
+        return $booksQuery->paginate(config('app.pagination.max_items_per_page', 20));
     }
 }

@@ -185,4 +185,7 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'pagination' => [
+        'max_items_per_page' => 20
+    ],
 ];
