@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('status')->default(Book::AVAILABLE);
             $table->foreignId('borrower_id')->nullable()->constrained('users');
             $table->timestamps();
+
+            $table->index('title');
+            $table->index('author');
         });
     }
 
