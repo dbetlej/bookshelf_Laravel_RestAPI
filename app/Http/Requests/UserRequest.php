@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class UserRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -41,13 +40,5 @@ class UserRequest extends FormRequest
             'password.confirmed' => 'Potwierdzenie hasła nie zgadza się z polem hasło.',
             'password_confirmation.required' => 'Pole potwierdzenie hasła jest wymagane.'
         ];
-    }
-
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
     }
 }

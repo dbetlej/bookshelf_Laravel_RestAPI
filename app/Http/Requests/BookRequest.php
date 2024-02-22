@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Foundation\Http\FormRequest;
 
-class BookRequest extends FormRequest
+class BookRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -45,13 +44,5 @@ class BookRequest extends FormRequest
             'publisher.string' => 'Pole wydawca musi być ciągiem znaków.',
             'publisher.max' => 'Pole wydawca nie może być dłuższe niż :max znaków.',
         ];
-    }
-
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
     }
 }
